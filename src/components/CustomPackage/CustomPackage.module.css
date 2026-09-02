@@ -1,0 +1,265 @@
+.customPackage {
+  width: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 600px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  height: 15%;
+  width:30%;
+}
+.button:hover{
+    background: #ffb900;
+    color: #000000;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 70px 80px;
+  box-sizing: border-box;
+}
+
+.textContent h2 {
+  margin: 0;
+
+  color: #182b3c;
+
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 1.15;
+}
+
+.textContent h1 {
+  margin: 0;
+
+  color: #000000;
+
+  font-family: Arial, sans-serif;
+  font-size: 98px;
+  font-weight: 700;
+
+  line-height: 1.15;
+}
+
+.textContent p {
+  max-width: 680px;
+
+  margin: 30px 0 60px;
+
+  color: #858585;
+
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+.imageContent {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+
+  overflow: hidden;
+}
+
+.imageContent img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+/* Optional image hover */
+
+.imageContent:hover img {
+  transform: scale(1.04);
+}
+
+/* Large Desktop - 1440px and above */
+@media (min-width: 1440px) {
+  .textContent {
+    padding: 80px 100px;
+  }
+
+  .textContent h1 {
+    font-size: 110px;
+  }
+
+  .textContent h2 {
+    font-size: 32px;
+  }
+
+  .textContent p {
+    font-size: 19px;
+    margin: 35px 0 70px;
+  }
+}
+
+/* Tablet - 1000px and below */
+@media (max-width: 1000px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+
+  .textContent {
+    padding: 50px 40px;
+  }
+
+  .textContent h1 {
+    font-size: 70px;
+  }
+
+  .textContent h2 {
+    font-size: 25px;
+  }
+
+  .textContent p {
+    margin: 25px 0 40px;
+    font-size: 16px;
+  }
+
+  .button {
+    width: 35%;
+    padding: 11px 25px;
+  }
+
+  .imageContent {
+    min-height: 500px;
+  }
+}
+
+/* Small Tablet - 768px and below */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .textContent {
+    padding: 50px 30px;
+  }
+
+  .textContent h1 {
+    font-size: 55px;
+  }
+
+  .textContent h2 {
+    font-size: 22px;
+  }
+
+  .textContent p {
+    font-size: 15px;
+    margin: 20px 0 35px;
+  }
+
+  .button {
+    width: 40%;
+  }
+
+  .imageContent {
+    min-height: 350px;
+  }
+}
+
+/* Mobile - 700px and below */
+@media (max-width: 700px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .textContent {
+    padding: 45px 25px;
+  }
+
+  .textContent h1 {
+    font-size: 45px;
+  }
+
+  .textContent h2 {
+    font-size: 20px;
+  }
+
+  .textContent p {
+    margin: 20px 0 30px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .button {
+    width: 50%;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+
+  .imageContent {
+    min-height: 300px;
+    height: auto;
+  }
+}
+
+/* Small Mobile - 480px and below */
+@media (max-width: 480px) {
+  .textContent {
+    padding: 40px 15px;
+  }
+
+  .textContent h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .textContent h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .textContent p {
+    font-size: 13px;
+    margin: 15px 0 25px;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  .button {
+    width: 70%;
+    padding: 10px 18px;
+    font-size: 12px;
+    margin-top: 12px;
+  }
+
+  .imageContent {
+    min-height: 250px;
+  }
+
+  .imageContent img {
+    object-position: center;
+  }
+}

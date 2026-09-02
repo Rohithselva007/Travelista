@@ -1,0 +1,386 @@
+/* =========================================================
+   GLOBAL STYLES & RESETS
+========================================================= */
+
+:root {
+    /* Primary Colors */
+    --primary-color: #f1a501;
+    --primary-dark: #e89500;
+    --primary-light: #ffb900;
+
+    /* Neutral Colors */
+    --text-dark: #1f2937;
+    --text-light: #777;
+    --text-lighter: #999;
+    --text-lightest: #aaa;
+    --bg-white: #ffffff;
+    --bg-light: #f7f7fb;
+    --bg-dark: #292929;
+    --bg-darker: #000;
+
+    /* Borders */
+    --border-color: #eee;
+    --border-light: #ddd;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 50px;
+    --spacing-3xl: 70px;
+
+    /* Border Radius */
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Z-indexes */
+    --z-negative: -1;
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-fixed: 1000;
+    --z-modal: 1050;
+    --z-tooltip: 1070;
+}
+
+/* Responsive Font Sizes */
+html {
+    font-size: clamp(14px, 1.2vw, 16px);
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    background: var(--bg-white);
+    color: var(--text-dark);
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+h1 {
+    font-size: clamp(32px, 5vw, 48px);
+}
+
+h2 {
+    font-size: clamp(28px, 4.5vw, 42px);
+}
+
+h3 {
+    font-size: clamp(24px, 4vw, 36px);
+}
+
+h4 {
+    font-size: clamp(20px, 3.5vw, 28px);
+}
+
+h5 {
+    font-size: clamp(18px, 3vw, 24px);
+}
+
+h6 {
+    font-size: clamp(16px, 2.5vw, 20px);
+}
+
+p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+small {
+    font-size: 0.875rem;
+}
+
+/* =========================================================
+   FORMS & INPUTS
+========================================================= */
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-white);
+    color: var(--text-dark);
+    transition: all var(--transition-normal);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(241, 165, 1, 0.1);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: var(--spacing-md) var(--spacing-lg);
+    transition: all var(--transition-normal);
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* =========================================================
+   LINKS & NAVIGATION
+========================================================= */
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* =========================================================
+   IMAGES & MEDIA
+========================================================= */
+
+img,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    object-fit: cover;
+}
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+/* =========================================================
+   CONTAINERS & LAYOUT
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    box-sizing: border-box;
+}
+
+.container-lg {
+    max-width: 1400px;
+}
+
+.container-md {
+    max-width: 900px;
+}
+
+.container-sm {
+    max-width: 600px;
+}
+
+/* =========================================================
+   UTILITY CLASSES
+========================================================= */
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-dark {
+    color: var(--text-dark);
+}
+
+.text-light {
+    color: var(--text-light);
+}
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mt-2xl { margin-top: var(--spacing-2xl); }
+.mt-3xl { margin-top: var(--spacing-3xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-2xl { margin-bottom: var(--spacing-2xl); }
+.mb-3xl { margin-bottom: var(--spacing-3xl); }
+
+.pt-sm { padding-top: var(--spacing-sm); }
+.pt-md { padding-top: var(--spacing-md); }
+.pt-lg { padding-top: var(--spacing-lg); }
+.pt-xl { padding-top: var(--spacing-xl); }
+.pt-2xl { padding-top: var(--spacing-2xl); }
+.pt-3xl { padding-top: var(--spacing-3xl); }
+
+.pb-sm { padding-bottom: var(--spacing-sm); }
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-lg { padding-bottom: var(--spacing-lg); }
+.pb-xl { padding-bottom: var(--spacing-xl); }
+.pb-2xl { padding-bottom: var(--spacing-2xl); }
+.pb-3xl { padding-bottom: var(--spacing-3xl); }
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+========================================================= */
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    h1 {
+        font-size: clamp(24px, 4vw, 32px);
+    }
+
+    h2 {
+        font-size: clamp(20px, 3.5vw, 28px);
+    }
+
+    h3 {
+        font-size: clamp(18px, 3vw, 24px);
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: clamp(20px, 3.5vw, 28px);
+    }
+
+    h2 {
+        font-size: clamp(18px, 3vw, 24px);
+    }
+
+    h3 {
+        font-size: clamp(16px, 2.5vw, 20px);
+    }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Focus visible for better keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   PRINT STYLES
+========================================================= */
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}

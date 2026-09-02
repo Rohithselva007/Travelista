@@ -1,0 +1,114 @@
+/* =========================================================
+   MAP INTEGRATION STYLES
+========================================================= */
+
+.mapContainer {
+    width: 100%;
+    min-height: clamp(300px, 50vh, 600px);
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #f0f0f0;
+}
+
+.leafletContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   MAP WRAPPER
+========================================================= */
+
+.mapWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* =========================================================
+   LEAFLET MAP OVERRIDES
+========================================================= */
+
+.mapContainer :global(.leaflet-control-container) {
+    font-family: inherit;
+}
+
+.mapContainer :global(.leaflet-popup-content-wrapper) {
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mapContainer :global(.leaflet-popup-tip) {
+    background: white;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1200px) {
+    .mapContainer {
+        min-height: clamp(250px, 45vh, 500px);
+    }
+}
+
+@media (max-width: 768px) {
+    .mapContainer {
+        min-height: clamp(250px, 40vh, 400px);
+    }
+
+    .mapContainer :global(.leaflet-control) {
+        margin: 8px !important;
+    }
+
+    .mapContainer :global(.leaflet-control-zoom) {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        border: 2px solid rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .mapContainer :global(.leaflet-control-zoom-in),
+    .mapContainer :global(.leaflet-control-zoom-out) {
+        font-size: 18px !important;
+        width: 32px !important;
+        height: 32px !important;
+        line-height: 32px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mapContainer {
+        min-height: clamp(200px, 35vh, 350px);
+        border-radius: 3px;
+    }
+
+    .mapContainer :global(.leaflet-control) {
+        margin: 5px !important;
+    }
+
+    .mapContainer :global(.leaflet-control-zoom) {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .mapContainer :global(.leaflet-control-zoom-in),
+    .mapContainer :global(.leaflet-control-zoom-out) {
+        font-size: 16px !important;
+        width: 28px !important;
+        height: 28px !important;
+        line-height: 28px !important;
+    }
+
+    .mapContainer :global(.leaflet-popup-content) {
+        margin: 8px !important;
+        font-size: 12px !important;
+    }
+
+    .mapContainer :global(.leaflet-popup-close-button) {
+        font-size: 18px !important;
+    }
+}

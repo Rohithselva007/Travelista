@@ -1,0 +1,251 @@
+.hero {
+    position: relative;
+
+    width: 100%;
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    padding: 80px 5%;
+
+    /* 50% dark overlay directly over image */
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("../../assets/hero-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================
+   HERO LAYOUT
+========================= */
+
+.heroContent {
+    width: 55%;
+
+    color: #fff;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.subtitle {
+    margin: 0 0 25px;
+
+    color: #fff;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.heroContent h1 {
+    margin: 0 0 25px;
+
+    color: #fff;
+
+    font-size: clamp(55px, 5vw, 80px);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description {
+    max-width: 700px;
+
+    margin: 0 0 30px;
+
+    color: #fff;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   GET STARTED
+========================= */
+
+.heroButton {
+    padding: 17px 42px;
+
+    color: #fff;
+
+    background: #fdbb00;
+
+    border: none;
+
+    border-radius: 0;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.heroButton:hover {
+    color: #222;
+
+    background: #fff;
+}
+
+
+/* =========================
+   SEARCH AREA
+========================= */
+
+.searchContainer {
+    width: 45%;
+
+    display: flex;
+
+    justify-content: flex-end;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        padding: 70px 30px;
+    }
+
+    .heroContent {
+        width: 52%;
+    }
+
+    .searchContainer {
+        width: 48%;
+    }
+
+    .heroContent h1 {
+        font-size: 60px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: auto;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 40px;
+
+        padding: 60px 20px;
+    }
+
+    .heroContent {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .searchContainer {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .subtitle {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+
+        letter-spacing: 2px;
+    }
+
+    .heroContent h1 {
+        font-size: clamp(40px, 12vw, 60px);
+
+        line-height: 1.1;
+    }
+
+    .description {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+
+    .heroButton {
+        padding: 15px 35px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .heroContent h1 {
+        font-size: 40px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .heroButton {
+        width: 100%;
+    }
+}

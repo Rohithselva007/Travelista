@@ -1,0 +1,275 @@
+.testimonials {
+  width: 100%;
+  background: #f8f8ff;
+  padding: 155px 0 55px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 94%;
+  max-width: 1530px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 115px;
+}
+
+.header h2 {
+  margin: 0;
+  color: #242424;
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.header p {
+  margin: 20px auto 0;
+  color: #8c8c8c;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
+  width: 100%;
+
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 40px;
+
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+
+  min-height: 230px;
+
+  padding: 34px 40px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+
+  margin-right: 40px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+}
+
+.profile img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  flex: 1;
+}
+
+.text {
+  margin: 0;
+
+  color: #858585;
+
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+.content h3 {
+  margin: 22px 0 8px;
+
+  color: #182b3c;
+
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+/* =========================
+   STARS
+========================= */
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.rating span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.activeStar {
+  color: #f5a400;
+}
+
+.inactiveStar {
+  color: #71808c;
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 100px;
+}
+
+.dot,
+.activeDot {
+  width: 13px;
+  height: 13px;
+
+  padding: 0;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease;
+}
+
+.dot {
+  background: #f1e7cc;
+}
+
+.activeDot {
+  background: #f2b300;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .testimonials {
+    padding: 100px 0 50px;
+  }
+
+  .header {
+    margin-bottom: 75px;
+  }
+
+  .header h2 {
+    font-size: 40px;
+  }
+
+  .slide {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    max-width: 750px;
+    margin: 0 auto;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .testimonials {
+    padding: 70px 0 40px;
+  }
+
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  .header {
+    margin-bottom: 50px;
+  }
+
+  .header h2 {
+    font-size: 31px;
+  }
+
+  .header p {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 28px 22px;
+  }
+
+  .profile {
+    width: 45px;
+    height: 45px;
+
+    margin-right: 20px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .content h3 {
+    font-size: 21px;
+  }
+
+  .rating span {
+    font-size: 19px;
+  }
+
+  .dots {
+    margin-top: 60px;
+  }
+
+  .dot,
+  .activeDot {
+    width: 11px;
+    height: 11px;
+  }
+}

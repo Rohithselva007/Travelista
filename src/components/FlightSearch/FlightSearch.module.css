@@ -1,0 +1,205 @@
+.searchBox {
+    position: absolute;
+
+    top: 100px;
+    right: 7%;
+
+    width: 470px;
+
+    background: #fff;
+
+    box-sizing: border-box;
+
+    z-index: 10;
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+.tabs {
+    display: flex;
+
+    width: 100%;
+}
+
+.tabs button {
+    flex: 1;
+
+    padding: 18px 15px;
+
+    border: none;
+
+    color: #fff;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.tabs button:hover {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.tabs button.active {
+    color: #555;
+
+    background: #fff;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 52px 40px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.form input {
+    width: 100%;
+
+    height: 58px;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    color: #555;
+
+    background: #fff;
+
+    border: 1px solid #e5e5e5;
+
+    outline: none;
+
+    font-size: 16px;
+
+    font-family: inherit;
+}
+
+.form input::placeholder {
+    color: #888;
+}
+
+.form input:focus {
+    border-color: #fdbb00;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.form button {
+    align-self: center;
+
+    min-width: 230px;
+
+    margin-top: 0;
+
+    padding: 17px 25px;
+
+    color: #fff;
+
+    background: #fdbb00;
+
+    border: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.form button:hover {
+    background: #e5a800;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .searchBox {
+        right: 4%;
+
+        width: 400px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .searchBox {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 90%;
+
+        margin: 30px auto 0;
+    }
+
+    .form {
+        padding: 35px 25px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 450px) {
+
+    .tabs button {
+        padding: 14px 5px;
+
+        font-size: 12px;
+    }
+
+    .form {
+        padding: 25px 18px;
+    }
+
+    .form input {
+        height: 52px;
+
+        font-size: 14px;
+    }
+
+    .form button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+}

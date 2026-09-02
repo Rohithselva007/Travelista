@@ -1,0 +1,67 @@
+.widget {
+    margin-bottom: 45px;
+}
+
+.widget h3 {
+    margin: 0 0 20px;
+
+    color: #222;
+
+    font-size: 18px;
+
+    text-transform: uppercase;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: clamp(5px, 1.5vw, 7px);
+}
+
+.tags a {
+    padding: clamp(5px, 1vw, 7px) clamp(8px, 1.5vw, 11px);
+
+    border: 1px solid #eee;
+
+    color: #777;
+
+    font-size: clamp(9px, 1vw, 10px);
+
+    text-transform: uppercase;
+
+    transition: all 0.25s ease;
+
+    white-space: nowrap;
+}
+
+.tags a:hover {
+    background: #f1a501;
+
+    border-color: #f1a501;
+
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .tags {
+        gap: 5px;
+    }
+
+    .tags a {
+        padding: 5px 8px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tags {
+        gap: 4px;
+    }
+
+    .tags a {
+        padding: 4px 6px;
+        font-size: 8px;
+    }
+}

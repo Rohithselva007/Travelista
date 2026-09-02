@@ -1,0 +1,254 @@
+.destinations {
+    width: 100%;
+    padding: 100px 0;
+    background: #fff;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.heading h2 {
+    margin: 0;
+    font-size: 48px;
+    color: #242424;
+}
+
+.heading p {
+    max-width: 750px;
+    margin: 20px auto 0;
+    color: #8c8c8c;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CAROUSEL
+========================= */
+
+.carousel {
+    position: relative;
+    width: 94%;
+    max-width: 1530px;
+    margin: auto;
+}
+
+.slider {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sliderTrack {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.slide {
+    position: relative;
+    min-width: 100%;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.05)
+    );
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    padding: 10px 20px;
+
+    background: #f2b300;
+    color: white;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.cardContent {
+    position: absolute;
+    left: 45px;
+    bottom: 40px;
+    color: white;
+}
+
+.cardContent h3 {
+    margin: 0 0 8px;
+    font-size: 34px;
+}
+
+.cardContent span {
+    font-size: 19px;
+}
+
+
+/* =========================
+   ARROWS
+========================= */
+
+.arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f2b300;
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+.arrow:hover {
+    background: #d99e00;
+}
+
+.leftArrow {
+    left: 20px;
+}
+
+.rightArrow {
+    right: 20px;
+}
+
+
+/* =========================
+   DOTS
+========================= */
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.dot,
+.activeDot {
+    width: 12px;
+    height: 12px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.dot {
+    background: #e5d9bd;
+}
+
+.activeDot {
+    background: #f2b300;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .destinations {
+        padding: 70px 0;
+    }
+
+    .heading {
+        padding: 0 20px;
+        margin-bottom: 40px;
+    }
+
+    .heading h2 {
+        font-size: 31px;
+    }
+
+    .heading p {
+        font-size: 15px;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .slide {
+        height: 400px;
+    }
+
+    .cardContent {
+        left: 25px;
+        bottom: 25px;
+    }
+
+    .cardContent h3 {
+        font-size: 25px;
+    }
+
+    .price {
+        top: 20px;
+        right: 20px;
+        font-size: 16px;
+    }
+
+    .arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+    .leftArrow {
+        left: 10px;
+    }
+
+    .rightArrow {
+        right: 10px;
+    }
+}

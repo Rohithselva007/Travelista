@@ -1,0 +1,233 @@
+.contact {
+    width: 100%;
+    padding: 80px 0 100px;
+
+    background: #fff;
+
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+    box-sizing: border-box;
+}
+
+/* Info Cards */
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    margin-bottom: 70px;
+}
+
+.infoCard {
+    padding: 32px 24px;
+
+    background: #f8f8f8;
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.infoCard:hover {
+    background: #182b3c;
+}
+
+.infoCard:hover h3,
+.infoCard:hover p {
+    color: #fff;
+}
+
+.infoIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 16px;
+
+    background: #182b3c;
+    color: #ffb900;
+
+    font-size: 22px;
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+.infoCard:hover .infoIcon {
+    background: #ffb900;
+    color: #182b3c;
+}
+
+.infoCard h3 {
+    margin: 0 0 10px;
+
+    color: #182b3c;
+    font-size: 18px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.infoCard p {
+    margin: 0;
+
+    color: #858585;
+    font-size: 15px;
+    line-height: 1.6;
+
+    transition: 0.3s;
+}
+
+/* Form */
+
+.formWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.formHeading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.formHeading h2 {
+    margin: 0;
+
+    color: #182b3c;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.formHeading p {
+    margin: 16px auto 0;
+
+    max-width: 560px;
+
+    color: #858585;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    color: #182b3c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.field input,
+.field textarea {
+    padding: 14px 16px;
+
+    border: 1px solid #e0e0e0;
+    background: #f8f8f8;
+
+    font-size: 15px;
+    color: #1f2937;
+
+    resize: vertical;
+
+    transition: 0.3s;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: #ffb900;
+    background: #fff;
+}
+
+.inputError {
+    border-color: #e0433c !important;
+}
+
+.errorText {
+    color: #e0433c;
+    font-size: 13px;
+}
+
+.button {
+    align-self: flex-start;
+
+    margin-top: 10px;
+    padding: 14px 36px;
+
+    background: #000000;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    border: none;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #ffb900;
+    color: #000000;
+}
+
+.successText {
+    margin: 0;
+
+    color: #1e7d34;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+
+    .infoGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .infoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formHeading h2 {
+        font-size: 28px;
+    }
+}

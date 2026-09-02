@@ -1,0 +1,622 @@
+/* =========================================================
+   ELEMENTS PAGE
+========================================================= */
+
+.elementsPage {
+    width: 100%;
+    min-height: 100vh;
+    background: #fff;
+    padding: 120px 0 80px;
+    color: #777;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+.elementsPage *,
+.elementsPage *::before,
+.elementsPage *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   COMMON SECTION
+========================================================= */
+
+.section {
+    width: min(1140px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+.section + .section {
+    border-top: 1px solid #eeeeee;
+}
+
+.section h2 {
+    margin: 0 0 30px;
+    color: #222;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.section p {
+    margin: 0 0 18px;
+    color: #777;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.section strong {
+    color: #222;
+}
+
+.section em {
+    color: #222;
+}
+
+.section a {
+    color: #f6214b;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   TEXT SAMPLE
+========================================================= */
+
+.section sup {
+    color: #f6214b;
+}
+
+.section sub {
+    color: #f6214b;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.buttonRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.buttonRow button {
+    border: 1px solid transparent;
+    padding: 12px 28px;
+    min-height: 44px;
+    border-radius: 0;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.buttonRow button:hover {
+    transform: translateY(-1px);
+}
+
+
+/* Default */
+
+.default {
+    color: #222;
+    background: #f9f9ff !important;
+    border-color: #eeeeee !important;
+}
+
+.default:hover {
+    background: #f6214b !important;
+    color: #fff !important;
+}
+
+
+/* Primary */
+
+.primary {
+    color: #fff;
+    background: #f6214b !important;
+}
+
+.primary:hover {
+    background: #d9153d !important;
+}
+
+
+/* Success */
+
+.success {
+    color: #fff;
+    background: #4cd3c2 !important;
+}
+
+.success:hover {
+    background: #35bca9 !important;
+}
+
+
+/* Info */
+
+.info {
+    color: #fff;
+    background: #38a9ff !important;
+}
+
+.info:hover {
+    background: #218edb !important;
+}
+
+
+/* Warning */
+
+.warning {
+    color: #fff;
+    background: #f9c400 !important;
+}
+
+.warning:hover {
+    background: #dcae00 !important;
+}
+
+
+/* Danger */
+
+.danger {
+    color: #fff;
+    background: #f44a4a !important;
+}
+
+.danger:hover {
+    background: #d93636 !important;
+}
+
+
+/* Link */
+
+.link {
+    color: #f6214b !important;
+    background: transparent !important;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+
+/* Disabled */
+
+.disabled {
+    color: #aaa !important;
+    background: #f5f5f5 !important;
+    border-color: #eee !important;
+    cursor: not-allowed !important;
+}
+
+.disabled:hover {
+    transform: none;
+}
+
+
+/* =========================================================
+   ALIGNED IMAGE + TEXT
+========================================================= */
+
+.imageText,
+.imageTextRight {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.imageText img,
+.imageTextRight img {
+    width: 280px;
+    height: 190px;
+    flex: 0 0 280px;
+    object-fit: cover;
+}
+
+.imageText p,
+.imageTextRight p {
+    flex: 1;
+}
+
+
+/* Right aligned */
+
+.imageTextRight {
+    flex-direction: row-reverse;
+}
+
+
+/* =========================================================
+   DEFINITIONS
+========================================================= */
+
+.definitionGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.definitionGrid h4 {
+    margin: 0 0 15px;
+    color: #222;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.definitionGrid p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   BLOCKQUOTE
+========================================================= */
+
+.section blockquote {
+    margin: 0;
+    padding: 25px 30px;
+    border-left: 3px solid #f6214b;
+    background: #f9f9ff;
+    color: #777;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tableWrapper table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+.tableWrapper th,
+.tableWrapper td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #eeeeee;
+    text-align: left;
+    font-size: 18px;
+}
+
+.tableWrapper th {
+    color: #222;
+    font-weight: 600;
+    background: #f9f9ff;
+}
+
+.tableWrapper td {
+    color: #777;
+}
+
+.tableWrapper tbody tr {
+    transition: background 0.2s ease;
+}
+
+.tableWrapper tbody tr:hover {
+    background: #fafafa;
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.section h1,
+.section h3,
+.section h4,
+.section h5,
+.section h6 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: 600;
+}
+
+.section h1 {
+    font-size: 36px;
+}
+
+.section h3 {
+    font-size: 22px;
+}
+
+.section h4 {
+    font-size: 18px;
+}
+
+.section h5 {
+    font-size: 20px;
+}
+
+.section h6 {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.listGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px;
+}
+
+.listGrid h2 {
+    margin-bottom: 25px;
+}
+
+.listGrid ul,
+.listGrid ol {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.listGrid li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    color: #777;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.listGrid ul ul {
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form input,
+.form select,
+.form textarea {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #eeeeee;
+    border-radius: 0;
+    outline: none;
+    background: #f9f9ff;
+    color: #555;
+    font-family: inherit;
+    font-size: 18px;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+    border-color: #f6214b;
+    background: #fff;
+}
+
+.form input::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================================================
+   SWITCHES
+========================================================= */
+
+.switchRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    min-height: 55px;
+    padding: 10px 0;
+    color: #777;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.switchRow input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slider {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    border-radius: 30px;
+    background: #ddd;
+    transition: background 0.25s ease;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+}
+
+.switchRow input:checked + .slider {
+    background: #f6214b;
+}
+
+.switchRow input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+
+/* =========================================================
+   CHECKBOXES + RADIOS
+========================================================= */
+
+.section label:not(.switchRow) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #777;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.section label:not(.switchRow) input {
+    width: 20px;
+    height: 20px;
+    accent-color: #f6214b;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.form select {
+    appearance: none;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991px) {
+    .elementsPage {
+        padding-top: 100px;
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .definitionGrid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .listGrid {
+        gap: 40px;
+    }
+
+    .imageText img,
+    .imageTextRight img {
+        width: 230px;
+        flex-basis: 230px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .elementsPage {
+        padding-top: 90px;
+    }
+
+    .section {
+        width: min(100% - 30px, 540px);
+        padding: 45px 0;
+    }
+
+    .section h2 {
+        font-size: 22px;
+    }
+
+    .buttonRow {
+        gap: 8px;
+    }
+
+    .buttonRow button {
+        padding: 10px 20px;
+    }
+
+    .imageText,
+    .imageTextRight {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .imageText img,
+    .imageTextRight img {
+        width: 100%;
+        height: 220px;
+        flex: none;
+    }
+
+    .listGrid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .section {
+        width: calc(100% - 24px);
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+
+    .buttonRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buttonRow button {
+        width: 100%;
+    }
+
+    .section blockquote {
+        padding: 20px;
+    }
+
+    .tableWrapper th,
+    .tableWrapper td {
+        padding: 12px;
+    }
+
+    .switchRow {
+        font-size: 18px;
+    }
+}

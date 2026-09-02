@@ -1,0 +1,217 @@
+.insurance {
+    width: 100%;
+    background: #fff;
+    padding: 120px 70px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+
+    margin-bottom: 120px;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Image */
+
+.imageBox {
+    width: 100%;
+    overflow: hidden;
+}
+
+.imageBox img {
+    width: 100%;
+    height: 430px;
+
+    display: block;
+    object-fit: cover;
+}
+
+
+/* Content */
+
+.content {
+    padding: 10px 0;
+}
+
+.content h2 {
+    margin: 0 0 25px;
+
+    color: #222;
+
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.content p {
+    margin: 0 0 20px;
+
+    color: #777;
+
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+
+/* Feature list */
+
+.featureList {
+    list-style: none;
+
+    margin: 30px 0 0;
+    padding: 0;
+}
+
+.featureList li {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 28px;
+
+    margin-bottom: 28px;
+
+    color: #111;
+
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.featureList li:last-child {
+    margin-bottom: 0;
+}
+
+.featureList img {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    margin-top: 7px;
+
+    object-fit: contain;
+}
+
+
+/* Button */
+
+.button {
+    display: inline-block;
+
+    margin-top: 15px;
+    padding: 12px 28px;
+
+    background: #ffb900;
+    color: #111;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: #222;
+    color: #fff;
+}
+
+
+/* Second row */
+
+.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    .insurance {
+        padding: 80px 40px;
+    }
+
+    .row {
+        gap: 40px;
+    }
+
+    .content h2 {
+        font-size: 36px;
+    }
+
+    .content p {
+        font-size: 18px;
+    }
+
+    .featureList li {
+        font-size: 18px;
+        gap: 20px;
+    }
+
+    .imageBox img {
+        height: 350px;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .insurance {
+        padding: 60px 25px;
+    }
+
+    .row,
+    .reverse {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-bottom: 70px;
+    }
+
+    .reverse .content {
+        order: 2;
+    }
+
+    .reverse .imageBox {
+        order: 1;
+    }
+
+    .content h2 {
+        font-size: 32px;
+    }
+
+    .content p {
+        font-size: 17px;
+    }
+
+    .featureList li {
+        font-size: 18px;
+        gap: 18px;
+        margin-bottom: 22px;
+    }
+
+    .featureList img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .imageBox img {
+        height: 300px;
+    }
+}
