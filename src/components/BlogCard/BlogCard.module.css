@@ -26,6 +26,7 @@
 }
 
 .blogCard:hover .postImage img {
+    background: #f1a501;
     transform: scale(1.04);
 }
 
