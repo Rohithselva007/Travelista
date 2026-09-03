@@ -1,6 +1,22 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+// Vite (like most bundlers) breaks Leaflet's default marker image paths,
+// since it rewrites asset URLs but Leaflet's CSS/JS reference them as
+// plain relative paths. Re-point the default icon at the bundled assets
+// so markers actually render instead of showing a broken image.
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+});
 
 const RandomMap = () => {
     const locations = [
