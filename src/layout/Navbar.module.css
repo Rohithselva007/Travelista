@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     left: 50%;
-    z-index: 1000;
+    z-index: 1100;
 
     display: flex;
     align-items: center;
@@ -103,6 +103,8 @@
 .logo a {
     display: flex;
     align-items: center;
+
+    text-decoration: none;
 }
 
 .logo img {
@@ -142,7 +144,7 @@
 
 
 /* =========================================================
-   NAVIGATION LINKS
+   NORMAL NAVIGATION LINKS
 ========================================================= */
 
 .navul a {
@@ -166,12 +168,17 @@
 
 
 /* =========================================================
-   DROPDOWN TRIGGER
+   DROPDOWN
 ========================================================= */
 
 .dropdown {
     position: relative;
 }
+
+
+/* =========================================================
+   DROPDOWN BUTTON
+========================================================= */
 
 .dropdownToggle {
     display: inline-flex;
@@ -220,9 +227,19 @@
     width: 14px;
     height: 14px;
 
-    transition: transform 0.25s ease;
+    transition:
+        transform 0.25s ease;
 }
 
+
+/*
+   Arrow opens when:
+   - clicked
+   - hovered
+   - keyboard focused
+*/
+
+.dropdownOpen > .dropdownToggle .arrow,
 .dropdown:hover > .dropdownToggle .arrow,
 .dropdown:focus-within > .dropdownToggle .arrow {
     transform: rotate(180deg);
@@ -230,13 +247,13 @@
 
 
 /* =========================================================
-   MAIN DROPDOWN
+   MAIN DROPDOWN MENU
 ========================================================= */
 
 .dropdownMenu {
     position: absolute;
 
-    top: calc(100% + 8px);
+    top: calc(100% + 4px);
     left: 50%;
 
     z-index: 2000;
@@ -244,6 +261,7 @@
     display: none;
 
     width: 180px;
+
     box-sizing: border-box;
 
     margin: 0;
@@ -265,7 +283,24 @@
 
 
 /* =========================================================
-   MAIN DROPDOWN HOVER BRIDGE
+   DROPDOWN SHOW STATE
+========================================================= */
+
+/*
+   dropdownOpen is controlled by React.
+
+   hover/focus are kept as fallback behaviour.
+*/
+
+.dropdownOpen > .dropdownMenu,
+.dropdown:hover > .dropdownMenu,
+.dropdown:focus-within > .dropdownMenu {
+    display: block;
+}
+
+
+/* =========================================================
+   DROPDOWN HOVER BRIDGE
 ========================================================= */
 
 .dropdownMenu::before {
@@ -273,21 +308,11 @@
 
     position: absolute;
 
-    top: -10px;
+    top: -8px;
     left: 0;
 
     width: 100%;
-    height: 10px;
-}
-
-
-/* =========================================================
-   SHOW MAIN DROPDOWN
-========================================================= */
-
-.dropdown:hover > .dropdownMenu,
-.dropdown:focus-within > .dropdownMenu {
-    display: block;
+    height: 8px;
 }
 
 
@@ -347,7 +372,9 @@
 }
 
 
-/* Level 2 link */
+/* =========================================================
+   LEVEL 2 LINK
+========================================================= */
 
 .hasChildren > a {
     display: flex;
@@ -360,7 +387,7 @@
 
 
 /* =========================================================
-   NESTED ARROW
+   LEVEL 2 ARROW
 ========================================================= */
 
 .submenuArrow {
@@ -368,7 +395,8 @@
 
     transform: rotate(-90deg);
 
-    transition: transform 0.2s ease;
+    transition:
+        transform 0.2s ease;
 }
 
 .hasChildren:hover > a .submenuArrow,
@@ -395,7 +423,7 @@
 
 
 /* =========================================================
-   NESTED MENU
+   NESTED SUBMENU
 ========================================================= */
 
 .submenu {
@@ -409,6 +437,7 @@
     display: block;
 
     width: 180px;
+
     box-sizing: border-box;
 
     margin: 0;
@@ -437,7 +466,7 @@
 
 
 /* =========================================================
-   SHOW NESTED MENU
+   SHOW NESTED SUBMENU
 ========================================================= */
 
 .hasChildren:hover > .submenu,
@@ -506,7 +535,7 @@
     top: 100px;
     left: 0;
 
-    z-index: 1001;
+    z-index: 1050;
 
     display: flex;
     align-items: center;
@@ -620,7 +649,8 @@
 
     cursor: pointer;
 
-    transition: color 0.25s ease;
+    transition:
+        color 0.25s ease;
 }
 
 .menuButton:hover {
@@ -741,58 +771,6 @@
 
 .mobileDropdown {
     width: 100%;
-}
-
-
-/* =========================================================
-   MOBILE NESTED DROPDOWN (Level 2 within a mobile dropdown)
-========================================================= */
-
-.mobileNestedDropdown {
-    width: 100%;
-}
-
-.mobileNestedButton {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    min-height: 44px;
-
-    box-sizing: border-box;
-
-    padding: 12px 5px;
-
-    background: transparent;
-
-    border: none;
-    border-bottom:
-        1px solid rgba(255, 255, 255, 0.06);
-
-    color: rgba(255, 255, 255, 0.8);
-
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 500;
-
-    text-align: left;
-
-    cursor: pointer;
-
-    transition:
-        color 0.25s ease,
-        padding-left 0.25s ease;
-}
-
-.mobileNestedButton:hover {
-    color: #ffd700;
-
-    padding-left: 10px;
-}
-
-.mobileNestedDropdown .mobileSubmenu {
-    padding-left: 15px;
 }
 
 
@@ -925,6 +903,59 @@
 
 
 /* =========================================================
+   MOBILE LEVEL 2
+========================================================= */
+
+.mobileNestedDropdown {
+    width: 100%;
+}
+
+.mobileNestedButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 44px;
+
+    box-sizing: border-box;
+
+    padding: 12px 5px;
+
+    background: transparent;
+
+    border: none;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+.mobileNestedButton:hover {
+    color: #ffd700;
+
+    padding-left: 10px;
+}
+
+.mobileNestedDropdown .mobileSubmenu {
+    padding-left: 15px;
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -957,6 +988,10 @@
 ========================================================= */
 
 @media (max-width: 800px) {
+
+    /* -----------------------------------------------------
+       HERO NAVBAR
+    ----------------------------------------------------- */
 
     .heroNav {
         top: 65px;
@@ -1043,17 +1078,12 @@
         top: 70px;
     }
 
-    /* Desktop dropdown is disabled on mobile */
+
     .dropdownMenu,
     .submenu {
-        display: none;
+        display: none !important;
     }
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width: 450px) {
 

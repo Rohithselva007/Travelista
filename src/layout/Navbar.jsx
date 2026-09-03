@@ -75,12 +75,24 @@ const dropdownLinks = {
 const isDecorative = (path) => path === "#";
 
 const Dropdown = ({ label, links }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen((previous) => !previous);
+    };
+
     return (
-        <li className={style.dropdown}>
+        <li
+            className={`${style.dropdown} ${
+                isOpen ? style.dropdownOpen : ""
+            }`}
+        >
             <button
                 type="button"
                 className={style.dropdownToggle}
+                onClick={toggleDropdown}
                 aria-haspopup="true"
+                aria-expanded={isOpen}
             >
                 <span>{label}</span>
 
@@ -264,6 +276,7 @@ const Navbar = () => {
         location.pathname === "/blog" ||
         location.pathname.startsWith("/blog/") ||
         location.pathname.startsWith("/pages/") ||
+        location.pathname === "/elements"||
         location.pathname === "/contact";
 
     useEffect(() => {
