@@ -71,10 +71,6 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   PROFILE
-========================= */
-
 .profile {
   flex-shrink: 0;
 
