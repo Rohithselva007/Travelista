@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import BlogHero from "../../components/BlogHero/BlogHero";
 import BlogFeature from "../../components/BlogHome/BlogFeature";
 import BlogCard from "../../components/BlogCard/BlogCard";
@@ -13,14 +12,9 @@ import {
     authorData,
 } from "../../data/blogData";
 import style from "./Blog.module.css";
-
-
 const Blog = () => {
-
     const [page, setPage] = useState(1);
-
     const popularPosts = blogPosts.slice(0, 4);
-
     return (
         <main className={style.blogPage}>
 
@@ -34,8 +28,6 @@ const Blog = () => {
                     />
                 ))}
             </section>
-
-
             <section className={style.blogSection}>
 
                 <div className={style.blogContainer}>
@@ -56,19 +48,14 @@ const Blog = () => {
                         />
 
                     </div>
-
-
                     <BlogSidebar
                         author={authorData}
                         popularPosts={popularPosts}
                         categories={categories}
                         tags={tags}
                     />
-
                 </div>
-
             </section>
-
         </main>
     );
 };
