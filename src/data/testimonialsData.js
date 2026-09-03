@@ -5,10 +5,6 @@ import person4 from "../assets/blog/c4.jpg";
 import person5 from "../assets/blog/c5.jpg";
 import person6 from "../assets/blog/c6.jpg";
 
-/* =========================================================
-   TESTIMONIALS DATA
-========================================================= */
-
 export const testimonialsData = [
   {
     name: "Carolyn Craig",

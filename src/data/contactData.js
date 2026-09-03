@@ -1,9 +1,5 @@
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from "react-icons/fa";
 
-/* =========================================================
-   CONTACT INFORMATION DATA
-========================================================= */
-
 export const contactInfoData = [
   {
     icon: FaMapMarkerAlt,
@@ -27,9 +23,6 @@ export const contactInfoData = [
   },
 ];
 
-/* =========================================================
-   CONTACT FORM INITIAL STATE
-========================================================= */
 
 export const initialFormState = {
   name: "",

@@ -3,10 +3,6 @@ import dreamCity from "../assets/d2.jpg";
 import cloudMountain from "../assets/d3.jpg";
 import AncientArchitecture from "../assets/packages/hot-deal.jpg";
 
-/* =========================================================
-   POPULAR DESTINATIONS DATA
-========================================================= */
-
 export const popularDestinations = [
   {
     name: "Mountain River",
@@ -27,10 +23,6 @@ export const popularDestinations = [
     price: "$350",
   },
 ];
-
-/* =========================================================
-   HOT DEALS DESTINATIONS DATA
-========================================================= */
 
 export const hotDealsDestinations = [
   {

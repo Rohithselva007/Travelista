@@ -12,10 +12,6 @@ import hotels4 from "../assets/hotels/d4.jpg";
 import hotels5 from "../assets/hotels/d5.jpg";
 import hotels6 from "../assets/hotels/d6.jpg";
 
-/* =========================================================
-   AFFORDABLE PACKAGES DATA
-========================================================= */
-
 export const affordablePackages = [
   {
     title: "Cheap Packages",
@@ -45,10 +41,6 @@ export const affordablePackages = [
     ],
   },
 ];
-
-/* =========================================================
-   POPULAR PACKAGES DATA
-========================================================= */
 
 export const popularPackages = [
   {
@@ -112,10 +104,6 @@ export const popularPackages = [
     price: "$250",
   },
 ];
-
-/* =========================================================
-   POPULAR HOTELS DATA
-========================================================= */
 
 export const popularHotels = [
   {

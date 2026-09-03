@@ -3,10 +3,6 @@ import cruise from "../assets/o2.jpg";
 import todo from "../assets/o3.jpg";
 import food from "../assets/o4.jpg";
 
-/* =========================================================
-   SERVICES/ISSUES DATA
-========================================================= */
-
 export const servicesData = [
   {
     title: "Rent a Car",

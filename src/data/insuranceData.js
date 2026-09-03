@@ -1,6 +1,3 @@
-/* =========================================================
-   INSURANCE FEATURES DATA
-========================================================= */
 
 export const insuranceFeatures = [
   {
@@ -16,10 +13,6 @@ export const insuranceFeatures = [
     text: "Modern and evergreen logo for your business.",
   },
 ];
-
-/* =========================================================
-   INSURANCE SECTIONS DATA
-========================================================= */
 
 export const insuranceSections = [
   {
