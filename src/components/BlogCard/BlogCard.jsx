@@ -28,10 +28,10 @@ const BlogCard = ({
 
                     <div className={style.categories}>
                         {categories.map((category, index) => (
-                            <a href="#" key={index}>
+                            <Link to={`/blog?q=${encodeURIComponent(category)}`} key={index}>
                                 {category}
                                 {index < categories.length - 1 && ","}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 

@@ -6,14 +6,21 @@ const Newsletter = ({
     description,
 }) => {
     const [email, setEmail] = useState("");
+    const [status, setStatus] = useState(null); // null | "success" | "error"
+
+    const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!email.trim()) return;
+        if (!email.trim() || !isValidEmail(email)) {
+            setStatus("error");
+            return;
+        }
 
-        console.log("Subscribed:", email);
-
+        // No subscription API exists yet — confirm locally rather than
+        // silently logging to the console.
+        setStatus("success");
         setEmail("");
     };
 
@@ -26,16 +33,18 @@ const Newsletter = ({
                 <p>{description}</p>
             )}
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
 
                 <input
                     type="email"
                     placeholder="Enter email"
                     value={email}
-                    onChange={(e) =>
-                        setEmail(e.target.value)
-                    }
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (status) setStatus(null);
+                    }}
                     required
+                    aria-invalid={status === "error"}
                 />
 
                 <button type="submit">
@@ -43,6 +52,13 @@ const Newsletter = ({
                 </button>
 
             </form>
+
+            {status === "success" && (
+                <p role="status">Thanks for subscribing!</p>
+            )}
+            {status === "error" && (
+                <p role="alert">Please enter a valid email.</p>
+            )}
 
             <small>
                 You can unsubscribe at any time

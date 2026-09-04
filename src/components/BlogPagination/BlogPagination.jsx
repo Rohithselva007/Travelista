@@ -16,7 +16,7 @@ const BlogPagination = ({
                 ‹
             </button>
 
-            {[1, 2, 3, 4, 9].map((page) => (
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                 <button
                     key={page}
                     className={

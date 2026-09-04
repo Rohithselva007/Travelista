@@ -48,11 +48,9 @@ const Packages = () => {
 
                                 <div className={style.priceRow}>
                                     <span>Price per person</span>
-                                    <button>
-                                        <strong>
-                                            {item.price}
-                                        </strong>
-                                    </button>
+                                    <strong>
+                                        {item.price}
+                                    </strong>
                                 </div>
 
                             </div>

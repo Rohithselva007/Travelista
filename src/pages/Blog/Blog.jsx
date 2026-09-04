@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import BlogHero from "../../components/BlogHero/BlogHero";
 import BlogFeature from "../../components/BlogHome/BlogFeature";
 import BlogCard from "../../components/BlogCard/BlogCard";
@@ -12,9 +13,43 @@ import {
     authorData,
 } from "../../data/blogData";
 import style from "./Blog.module.css";
+
+const POSTS_PER_PAGE = 5;
+
 const Blog = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(1);
+    const search = searchParams.get("q") || "";
     const popularPosts = blogPosts.slice(0, 4);
+
+    const normalizedSearch = search.trim().toLowerCase();
+    const filteredPosts = normalizedSearch
+        ? blogPosts.filter((post) => {
+              const haystack = [
+                  post.title,
+                  post.description,
+                  post.author,
+                  ...(post.categories || []),
+              ]
+                  .join(" ")
+                  .toLowerCase();
+              return haystack.includes(normalizedSearch);
+          })
+        : blogPosts;
+
+    const totalPages = Math.max(
+        1,
+        Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+    );
+    const safePage = Math.min(page, totalPages);
+    const start = (safePage - 1) * POSTS_PER_PAGE;
+    const visiblePosts = filteredPosts.slice(start, start + POSTS_PER_PAGE);
+
+    const handleSearch = (value) => {
+        setPage(1);
+        setSearchParams(value ? { q: value } : {});
+    };
+
     return (
         <main className={style.blogPage}>
 
@@ -34,16 +69,20 @@ const Blog = () => {
 
                     <div className={style.posts}>
 
-                        {blogPosts.map((post) => (
-                            <BlogCard
-                                key={post.id}
-                                {...post}
-                            />
-                        ))}
+                        {visiblePosts.length > 0 ? (
+                            visiblePosts.map((post) => (
+                                <BlogCard
+                                    key={post.id}
+                                    {...post}
+                                />
+                            ))
+                        ) : (
+                            <p>No posts match your search.</p>
+                        )}
 
                         <BlogPagination
-                            currentPage={page}
-                            totalPages={9}
+                            currentPage={safePage}
+                            totalPages={totalPages}
                             onPageChange={setPage}
                         />
 
@@ -53,6 +92,8 @@ const Blog = () => {
                         popularPosts={popularPosts}
                         categories={categories}
                         tags={tags}
+                        search={search}
+                        onSearch={handleSearch}
                     />
                 </div>
             </section>

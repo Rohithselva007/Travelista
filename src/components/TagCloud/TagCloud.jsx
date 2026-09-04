@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./TagCloud.module.css";
 
 const TagCloud = ({ tags = [] }) => {
@@ -9,9 +10,9 @@ const TagCloud = ({ tags = [] }) => {
             <div className={style.tags}>
 
                 {tags.map((tag, index) => (
-                    <a href="#" key={index}>
+                    <Link to={`/blog?q=${encodeURIComponent(tag)}`} key={index}>
                         {tag}
-                    </a>
+                    </Link>
                 ))}
 
             </div>

@@ -391,17 +391,17 @@ const Navbar = () => {
                     </div>
 
                     <div className={style.socialIcons}>
-                        <a href="#" aria-label="Facebook">
+                        <span aria-hidden="true">
                             <FaFacebookF />
-                        </a>
+                        </span>
 
-                        <a href="#" aria-label="Twitter">
+                        <span aria-hidden="true">
                             <FaTwitter />
-                        </a>
+                        </span>
 
-                        <a href="#" aria-label="Instagram">
+                        <span aria-hidden="true">
                             <FaInstagram />
-                        </a>
+                        </span>
                     </div>
                 </div>
             )}

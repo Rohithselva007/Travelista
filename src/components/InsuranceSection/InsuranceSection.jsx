@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./InsuranceSection.module.css";
 import icon from '../../assets/insurence/bullet.png'
 import insurance1 from "../../assets/insurence/i1.jpg";
@@ -36,9 +37,9 @@ const InsuranceSection = () => {
                                 ))}
                             </ul>
 
-                            <a href="#" className={style.button}>
+                            <Link to="/contact" className={style.button}>
                                 {section.buttonText}
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 ))}

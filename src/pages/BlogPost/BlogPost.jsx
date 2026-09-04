@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import style from "./BlogPost.module.css";
 
 import {
@@ -20,7 +21,7 @@ import c4 from "../../assets/blog/c4.jpg";
 import c5 from "../../assets/blog/c5.jpg";
 import aboutBg from "../../assets/top-banner.jpg";
 
-const comments = [
+const initialComments = [
     {
         avatar: c1,
         name: "Emily Blunt",
@@ -55,6 +56,11 @@ const comments = [
 
 const BlogPost = () => {
     const { slug } = useParams();
+    const navigate = useNavigate();
+    const [comments, setComments] = useState(initialComments);
+    const [replyingTo, setReplyingTo] = useState(null);
+    const [replyText, setReplyText] = useState("");
+    const [commentForm, setCommentForm] = useState({ name: "", email: "", text: "" });
     const index = blogPosts.findIndex((item) => item.slug === slug);
     const post = index !== -1 ? blogPosts[index] : null;
 
@@ -73,6 +79,42 @@ const BlogPost = () => {
     const prevPost = blogPosts[(index - 1 + blogPosts.length) % blogPosts.length];
     const nextPost = blogPosts[(index + 1) % blogPosts.length];
     const popularPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 4);
+
+    const now = () =>
+        new Date().toLocaleString("en-US", {
+            day: "2-digit", month: "short", year: "numeric", hour: "numeric", minute: "2-digit",
+        });
+
+    const handleReplySubmit = (event, parentName) => {
+        event.preventDefault();
+        if (!replyText.trim()) return;
+        setComments((prev) => [
+            ...prev,
+            {
+                avatar: post.image,
+                name: "You",
+                date: `${now()} (reply to ${parentName})`,
+                text: replyText.trim(),
+            },
+        ]);
+        setReplyText("");
+        setReplyingTo(null);
+    };
+
+    const handleCommentSubmit = (event) => {
+        event.preventDefault();
+        if (!commentForm.name.trim() || !commentForm.email.trim() || !commentForm.text.trim()) return;
+        setComments((prev) => [
+            ...prev,
+            {
+                avatar: post.image,
+                name: commentForm.name.trim(),
+                date: now(),
+                text: commentForm.text.trim(),
+            },
+        ]);
+        setCommentForm({ name: "", email: "", text: "" });
+    };
 
     return (
         <>
@@ -123,10 +165,30 @@ const BlogPost = () => {
 
                             <div className={style.shareRow}>
                                 <span>Share:</span>
-                                <a href="#" aria-label="Share on Facebook"><FaFacebookF /></a>
-                                <a href="#" aria-label="Share on Twitter"><FaTwitter /></a>
-                                <a href="#" aria-label="Share on Pinterest"><FaPinterestP /></a>
-                                <a href="#" aria-label="Share on LinkedIn"><FaLinkedinIn /></a>
+                                <a
+                                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Share on Facebook"
+                                ><FaFacebookF /></a>
+                                <a
+                                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(post.title)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Share on Twitter"
+                                ><FaTwitter /></a>
+                                <a
+                                    href={`https://pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&media=${encodeURIComponent(post.image)}&description=${encodeURIComponent(post.title)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Share on Pinterest"
+                                ><FaPinterestP /></a>
+                                <a
+                                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Share on LinkedIn"
+                                ><FaLinkedinIn /></a>
                             </div>
                         </div>
 
@@ -171,17 +233,41 @@ const BlogPost = () => {
                             <h3>{comments.length} Comments</h3>
 
                             <ul className={style.commentList}>
-                                {comments.map((comment) => (
-                                    <li key={comment.name}>
+                                {comments.map((comment, i) => (
+                                    <li key={`${comment.name}-${i}`}>
                                         <img src={comment.avatar} alt={comment.name} />
 
                                         <div>
                                             <h4>{comment.name}</h4>
                                             <span className={style.commentDate}>{comment.date}</span>
                                             <p>{comment.text}</p>
-                                            <button type="button" className={style.replyBtn}>
-                                                Reply
+                                            <button
+                                                type="button"
+                                                className={style.replyBtn}
+                                                onClick={() =>
+                                                    setReplyingTo(replyingTo === i ? null : i)
+                                                }
+                                            >
+                                                {replyingTo === i ? "Cancel" : "Reply"}
                                             </button>
+
+                                            {replyingTo === i && (
+                                                <form
+                                                    className={style.commentForm}
+                                                    onSubmit={(e) => handleReplySubmit(e, comment.name)}
+                                                >
+                                                    <textarea
+                                                        rows={3}
+                                                        placeholder={`Reply to ${comment.name}`}
+                                                        value={replyText}
+                                                        onChange={(e) => setReplyText(e.target.value)}
+                                                        required
+                                                    />
+                                                    <button type="submit" className={style.submitBtn}>
+                                                        Post Reply
+                                                    </button>
+                                                </form>
+                                            )}
                                         </div>
                                     </li>
                                 ))}
@@ -192,13 +278,31 @@ const BlogPost = () => {
                         <div className={style.commentForm}>
                             <h3>Leave a Comment</h3>
 
-                            <form onSubmit={(event) => event.preventDefault()}>
+                            <form onSubmit={handleCommentSubmit}>
                                 <div className={style.formRow}>
-                                    <input type="text" placeholder="Your Name" required />
-                                    <input type="email" placeholder="Your Email" required />
+                                    <input
+                                        type="text"
+                                        placeholder="Your Name"
+                                        value={commentForm.name}
+                                        onChange={(e) => setCommentForm({ ...commentForm, name: e.target.value })}
+                                        required
+                                    />
+                                    <input
+                                        type="email"
+                                        placeholder="Your Email"
+                                        value={commentForm.email}
+                                        onChange={(e) => setCommentForm({ ...commentForm, email: e.target.value })}
+                                        required
+                                    />
                                 </div>
 
-                                <textarea rows={5} placeholder="Your Comment" required />
+                                <textarea
+                                    rows={5}
+                                    placeholder="Your Comment"
+                                    value={commentForm.text}
+                                    onChange={(e) => setCommentForm({ ...commentForm, text: e.target.value })}
+                                    required
+                                />
 
                                 <button type="submit" className={style.submitBtn}>
                                     Post Comment
@@ -213,6 +317,7 @@ const BlogPost = () => {
                         popularPosts={popularPosts}
                         categories={categories}
                         tags={tags}
+                        onSearch={(value) => navigate(`/blog?q=${encodeURIComponent(value)}`)}
                     />
 
                 </div>

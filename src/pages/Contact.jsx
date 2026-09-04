@@ -5,9 +5,9 @@ import "leaflet/dist/leaflet.css";
 const Contact = () => {
   return (
     <>
-    <MapInt/>
       <ContactHero />
       <ContactSection />
+      <MapInt/>
     </>
   );
 };

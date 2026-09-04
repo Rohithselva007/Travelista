@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import Newsletter from "../components/Newsletter/Newsletter";
 import style from "./Footer.module.css";
 
 import img from "../assets/i1.jpg";
@@ -52,37 +54,37 @@ const Footer = () => {
 
                         <ul>
                             <li>
-                                <a href="/">Home</a>
+                                <Link to="/">Home</Link>
                             </li>
 
                             <li>
-                                <a href="/">Features</a>
+                                <Link to="/about">About</Link>
                             </li>
 
                             <li>
-                                <a href="/">Services</a>
+                                <Link to="/packages">Packages</Link>
                             </li>
 
                             <li>
-                                <a href="/">Portfolio</a>
+                                <Link to="/hotels">Hotels</Link>
                             </li>
                         </ul>
 
                         <ul>
                             <li>
-                                <a href="/">Team</a>
+                                <Link to="/insurance">Insurance</Link>
                             </li>
 
                             <li>
-                                <a href="/">Pricing</a>
+                                <Link to="/elements">Elements</Link>
                             </li>
 
                             <li>
-                                <a href="/">Blog</a>
+                                <Link to="/blog">Blog</Link>
                             </li>
 
                             <li>
-                                <a href="/">Contact</a>
+                                <Link to="/contact">Contact</Link>
                             </li>
                         </ul>
 
@@ -93,27 +95,10 @@ const Footer = () => {
 
                 {/* Newsletter */}
                 <div className={style.column}>
-
-                    <h1>Newsletter</h1>
-
-                    <p>
-                        Subscribe to receive the latest travel updates,
-                        offers and destinations.
-                    </p>
-
-                    <div className={style.newsletter}>
-
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                        />
-
-                        <button type="button">
-                            Subscribe
-                        </button>
-
-                    </div>
-
+                    <Newsletter
+                        title="Newsletter"
+                        description="Subscribe to receive the latest travel updates, offers and destinations."
+                    />
                 </div>
 
 
@@ -125,12 +110,11 @@ const Footer = () => {
                     <div className={style.instaFeed}>
 
                         {instaImages.map((image, index) => (
-                            <a href="#" key={index}>
-                                <img
-                                    src={image}
-                                    alt={`Instagram ${index + 1}`}
-                                />
-                            </a>
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`Instagram ${index + 1}`}
+                            />
                         ))}
 
                     </div>

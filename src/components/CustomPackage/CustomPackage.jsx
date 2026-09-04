@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import styles from "../CustomPackage/CustomPackage.module.css";
 
 import customImage from "../../assets/hotels/about-img.jpg";
 
 const CustomPackage = () => {
+  const navigate = useNavigate();
   return (
     <section className={styles.customPackage}>
       <div className={styles.content}>
@@ -20,7 +22,7 @@ const CustomPackage = () => {
             packages just don’t fit. Tell us your destination, budget,
             and dates, and we’ll build a custom itinerary around them.
           </p>
-          <button type="button" className={styles.button}>Request Custom Package</button>
+          <button type="button" className={styles.button} onClick={() => navigate("/contact")}>Request Custom Package</button>
         </div>
 
         <div className={styles.imageContent}>

@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import style from "./MapInt.module.css";
 
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
@@ -57,24 +58,26 @@ const RandomMap = () => {
     });
 
     return (
-        <MapContainer
-            center={[location.lat, location.lng]}
-            zoom={5}
-            className="map"
-        >
-            <TileLayer
-                attribution='&copy; OpenStreetMap contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
+        <div className={style.mapContainer}>
+            <MapContainer
+                center={[location.lat, location.lng]}
+                zoom={5}
+                className={style.leafletContainer}
+            >
+                <TileLayer
+                    attribution='&copy; OpenStreetMap contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
 
-            <Marker position={[location.lat, location.lng]}>
-                <Popup>
-                    <strong>{location.name}</strong>
-                    <br />
-                    Random destination
-                </Popup>
-            </Marker>
-        </MapContainer>
+                <Marker position={[location.lat, location.lng]}>
+                    <Popup>
+                        <strong>{location.name}</strong>
+                        <br />
+                        Random destination
+                    </Popup>
+                </Marker>
+            </MapContainer>
+        </div>
     );
 };
 

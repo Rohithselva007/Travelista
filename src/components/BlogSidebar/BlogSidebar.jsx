@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import PopularPosts from "../PopularPosts/PopularPosts";
@@ -15,15 +14,9 @@ const BlogSidebar = ({
     popularPosts,
     categories,
     tags,
+    search = "",
+    onSearch,
 }) => {
-    const [search, setSearch] = useState("");
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-
-        console.log("Search:", search);
-    };
-
     return (
         <aside className={style.sidebar}>
 
@@ -31,16 +24,14 @@ const BlogSidebar = ({
 
             <form
                 className={style.search}
-                onSubmit={handleSearch}
+                onSubmit={(e) => e.preventDefault()}
             >
 
                 <input
                     type="text"
                     placeholder="Search Posts"
                     value={search}
-                    onChange={(e) =>
-                        setSearch(e.target.value)
-                    }
+                    onChange={(e) => onSearch?.(e.target.value)}
                 />
 
                 <button type="submit">
@@ -67,9 +58,9 @@ const BlogSidebar = ({
 
                     {author.socials?.map(
                         (social, index) => (
-                            <a href="#" key={index}>
+                            <span key={index}>
                                 {social}
-                            </a>
+                            </span>
                         )
                     )}
 

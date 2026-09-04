@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom'
 import style from './HeroSection.module.css'
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <>
     <section className={style.hero}>
@@ -19,7 +21,7 @@ const HeroSection = () => {
                         You may see some for as low as $17 each.
                     </p>
 
-                    <button className={style.heroButton}>
+                    <button className={style.heroButton} onClick={() => navigate('/packages')}>
                         GET STARTED
                     </button>
 

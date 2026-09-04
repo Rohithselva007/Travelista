@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./CategoryList.module.css";
 
 const CategoryList = ({ categories = [] }) => {
@@ -9,8 +10,8 @@ const CategoryList = ({ categories = [] }) => {
             <div className={style.list}>
 
                 {categories.map((category) => (
-                    <a
-                        href="#"
+                    <Link
+                        to={`/blog?q=${encodeURIComponent(category.name)}`}
                         key={category.name}
                     >
                         <span>
@@ -20,7 +21,7 @@ const CategoryList = ({ categories = [] }) => {
                         <span>
                             {category.count}
                         </span>
-                    </a>
+                    </Link>
                 ))}
 
             </div>
